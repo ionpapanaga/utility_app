@@ -5,6 +5,7 @@
 
 using namespace std;
 
+// Class to represent each vending machine item
 class Item {
 public:
     string name;
@@ -19,14 +20,14 @@ public:
         category = c;
     }
 };
-
+// Displays all available categories to the useR
 void displayCategories(const vector<string>& categories){
     cout << "\nCategories:\n";
     for(int i=0;i<categories.size();i++){
         cout << i+1 << ". " << categories[i] << "\n";
     }
 }
-
+// Displays items belonging to a selected category
 void displayItems(const vector<Item>& items, string cat){
     cout << "\nItems in " << cat << ":\n";
     for(int i=0;i<items.size();i++){
@@ -44,7 +45,7 @@ bool categoryExists(const vector<string>& cats, int choice){
 bool itemAvailable(const vector<Item>& items, int index){
     return index >= 0 && index < items.size() && items[index].stock > 0;
 }
-
+// Main vending machine loop
 int main(){
     vector<string> categories = {"Chocolate", "Crisps", "Drinks"};
     vector<Item> items = {
